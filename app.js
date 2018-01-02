@@ -12,7 +12,6 @@ var monk = require('monk'); // use monk to talk to mongo
 var db = monk('localhost:27017/todo-list');
 
 var routes = require('./routes/index.js');
-var users = require('./routes/users.js');
 
 // instantiates express and assigns out app variable to it.
 var app = express();
@@ -36,7 +35,6 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', routes); // what route files to use
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
