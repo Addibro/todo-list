@@ -52,8 +52,8 @@ block content
                                         td
                                             a.btn.btn-info(role="button" href="#{item['link']}" target="_blank") Till uppgiften
                                         td
-                                            button.btn.btn-success(type="button" data-toggle="modal" data-target="#confirm") Klar
-                                            #confirm.modal.fade(tabindex='-1', role='dialog', aria-labelledby='confirmLabel', aria-hidden='true')
+                                            a.btn.btn-success(role="button" href='/delete?id=#{item["_id"]}') Klar
+                                            //#confirm.modal.fade(tabindex='-1', role='dialog', aria-labelledby='confirmLabel', aria-hidden='true')
                                                 .modal-dialog(role='document')
                                                     .modal-content
                                                         .modal-header
