@@ -1,0 +1,23 @@
+body {
+  background: url("https://images.pexels.com/photos/752436/pexels-photo-752436.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb") no-repeat;
+  background-size: 150%;
+  padding: 50px;
+  font: 14px "Monospaced", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: brown;
+}
+
+form input {
+  margin-bottom: 50px;
+}
+
+table td {
+  padding: 10px 20px 10px 0;
+}
+
+img {
+  width: 500px;
+  height: 300px;
+}

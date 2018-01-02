@@ -1,0 +1,69 @@
+extends layout
+block content
+    .success
+    .error
+    .container
+        .jumbotron
+            h1.display-4 TODOS
+            hr.my-4
+            .row
+                .col-sm-5
+                    button.btn.btn-primary(data-toggle="collapse", data-target=".multi-collapse", type="button", aria-expanded="false", aria-controls="kursform img", style="margin-bottom: 50px")
+                        | Ny uppgift
+            .row
+                .col-sm-6
+                    form#kursform.collapse.multi-collapse(action='/add', method= 'post')
+                        input#id(type='hidden', name='id', value='')
+                        .form-group
+                            input#kurs.form-control(type='text', name='kurs', placeholder='Kurs', value='')
+                        .form-group
+                            input#uppgift(class="form-control" type='text', name='uppgift', placeholder='Uppgift', value='')
+                        .form-group.date
+                            input#datepicker(class="form-control" type='text', name='deadline', placeholder='Deadline (DD/MM)', value='')
+                        .form-group
+                            input#link(class="form-control" type='text', name='link', placeholder='Länk', value='')
+                            button#subbtn(class='btn btn-primary' type='submit', name='sub', value='Lägg till uppgift') Lägg till uppgift
+                .col-sm-6
+                    div#imagediv
+                        img#img.rounded.float-left.collapse.multi-collapse(src="https://i.ytimg.com/vi/6AnAhdN9nDg/maxresdefault.jpg" alt"" style="padding: 0")
+
+
+
+        .row
+            .col-lg
+                table.table.table-striped
+                    tbody
+                        if data.length
+                            tr(style="text-align: left;")
+                                th(scope="col") Kurs
+                                th(scope="col") Uppgift
+                                th(scope="col") Deadline
+                                th(scope="col") Länk
+                                th(scope="col") Action
+                                each item, i in data
+                                    tr
+                                        //td #{item['_id']}
+                                        td
+                                            span(style="color: white") #{item['kurs']}
+                                        td
+                                            span(style="color: white") #{item['uppgift']}
+                                        td
+                                            span(style="color: white") #{item['deadline']}
+                                        td
+                                            a.btn.btn-info(role="button" href="#{item['link']}" target="_blank") Till uppgiften
+                                        td
+                                            button.btn.btn-success(type="button" data-toggle="modal" data-target="#confirm") Klar
+                                            #confirm.modal.fade(tabindex='-1', role='dialog', aria-labelledby='confirmLabel', aria-hidden='true')
+                                                .modal-dialog(role='document')
+                                                    .modal-content
+                                                        .modal-header
+                                                            h5#confirmLabel.modal-title Säker?
+                                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                span(aria-hidden='true') ×
+                                                        .modal-body
+                                                            | #{item['uppgift']} i #{item['kurs']} kommer att raderas från listan
+                                                        .modal-footer
+                                                            button.btn.btn-info(type='button', data-dismiss='modal') Stäng
+                                                            a.btn.btn-success(role="button" href='/delete?id=#{item["_id"]}') Ok
+                        else
+                            h3(style="text-align: center;") DONE

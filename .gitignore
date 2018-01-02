@@ -1,0 +1,7 @@
+## Intellij
+.idea/
+todo-list.iml
+
+## Node
+node_modules/
+npm-debug.log
