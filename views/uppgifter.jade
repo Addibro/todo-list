@@ -42,13 +42,9 @@ block content
                                 th(scope="col") Action
                                 each item, i in data
                                     tr
-                                        //td #{item['_id']}
-                                        td
-                                            span(style="color: white") #{item['kurs']}
-                                        td
-                                            span(style="color: white") #{item['uppgift']}
-                                        td
-                                            span(style="color: white") #{item['deadline']}
+                                        td= item.kurs
+                                        td= item.uppgift
+                                        td= item.deadline
                                         td
                                             a.btn.btn-info(role="button" href="#{item['link']}" target="_blank") Till uppgiften
                                         td
