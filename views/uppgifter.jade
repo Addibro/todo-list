@@ -9,20 +9,20 @@ block content
             .row
                 .col-sm-5
                     button.btn.btn-primary(data-toggle="collapse", data-target=".multi-collapse", type="button", aria-expanded="false", aria-controls="kursform img", style="margin-bottom: 50px")
-                        | Ny uppgift
+                        | Ny TODO
             .row
                 .col-sm-6
                     form#kursform.collapse.multi-collapse(action='/add', method= 'post')
                         input#id(type='hidden', name='id', value='')
                         .form-group
-                            input#kurs.form-control(type='text', name='kurs', placeholder='Kurs', value='')
+                            input#kurs.form-control(type='text', name='kurs', placeholder='Ämne', value='')
                         .form-group
                             input#uppgift(class="form-control" type='text', name='uppgift', placeholder='Uppgift', value='')
                         .form-group.date
                             input#datepicker(class="form-control" type='text', name='deadline', placeholder='Deadline (DD/MM)', value='')
                         .form-group
                             input#link(class="form-control" type='text', name='link', placeholder='Länk', value='')
-                            button#subbtn(class='btn btn-primary' type='submit', name='sub', value='Lägg till uppgift') Lägg till uppgift
+                            button#subbtn(class='btn btn-primary' type='submit', name='sub', value='Lägg till uppgift') Lägg till TODO
                 .col-sm-6
                     div#imagediv
                         img#img.rounded.float-left.collapse.multi-collapse(src="https://i.ytimg.com/vi/6AnAhdN9nDg/maxresdefault.jpg" alt"" style="padding: 0")
@@ -66,4 +66,4 @@ block content
                                                             button.btn.btn-info(type='button', data-dismiss='modal') Stäng
                                                             a.btn.btn-success(role="button" href='/delete?id=#{item["_id"]}') Ok
                         else
-                            h3(style="text-align: center;") DONE
+                            h3(style="text-align: center;") ALL DONE
