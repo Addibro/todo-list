@@ -1,3 +1,4 @@
 # todo-list
 
-## run npm install
+### npm install 
+### brew mongodb
