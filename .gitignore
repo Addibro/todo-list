@@ -7,5 +7,5 @@ node_modules/
 npm-debug.log
 
 # Data
-data/journal/
-data/diagnostic.data
+/data/journal/
+/data/diagnostic.data
