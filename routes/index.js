@@ -1,6 +1,6 @@
 var express = require('express');
-var router = express.Router();
-var mongodb     = require('mongodb');
+var router  = express.Router();
+var mongodb = require('mongodb');
 
 var MongoClient = mongodb.MongoClient;
 
@@ -10,7 +10,6 @@ var dburl = "mongodb://localhost:27017/todo-list";
 router.get('/helloworld', function (req, res) {
     res.render('helloworld', { title: 'Hello, World!'})
 });
-module.exports = router;
 
 /* GET products listing. */
 router.get('/', function(req, res, next) {
@@ -24,7 +23,6 @@ router.get('/', function(req, res, next) {
         });
     });
 });
-
 
 /* POST to Add User Service */
 router.post('/add', function (req, res) {
@@ -41,7 +39,7 @@ router.post('/add', function (req, res) {
         var collection = db.collection('uppgifter');
 
         // Submit to the db
-        collection.insert({
+        collection.insertOne({
             "kurs": kurs,
             "uppgift": uppgift,
             "deadline": deadline,
@@ -57,6 +55,7 @@ router.post('/add', function (req, res) {
         })
     })
 });
+
 
 /* GET to Delete Uppgift */
 router.get('/delete', function(req, res, next) {
@@ -79,3 +78,5 @@ router.get('/delete', function(req, res, next) {
         })
     })
 });
+
+module.exports = router;
